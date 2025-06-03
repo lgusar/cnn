@@ -2,11 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define TRAINING_REPS 1000000 
+#define TRAINING_REPS 100000
 
-static float training_data[2][2] = {
-    {0, 1},
-    {1, 0},
+static float training_data[][2] = {
+    {0, 0},
+    {1, 2},
+    {2, 4},
+    {3, 6},
+    {4, 8},
 };
 
 #define DATA_LEN sizeof(training_data) / sizeof(training_data[0])
@@ -35,7 +38,7 @@ int main() {
     float w = rand_float();
     float b = rand_float();
 
-    float eps = 1e-2;
+    float eps = 1e-3;
     float rate = 1e-2;
 
     for (size_t i = 0; i < TRAINING_REPS; i++) {
